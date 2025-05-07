@@ -4,7 +4,7 @@ export default function Heading() {
       {"Lorem "}
       <span className="gradient-text">
         {
-          "ipsum dolor sit amet consectetur adipiscing elit etiam molestie ex vel"
+          "ipsum dolor sit amet consectetur adipiscing elit etiam molestie ex vel "
         }
       </span>
       {
