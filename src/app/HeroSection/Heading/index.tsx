@@ -3,7 +3,7 @@ import Button from "@/components/atoms/Button";
 
 export default function Heading() {
   return (
-    <div className="absolute justify-center flex top-50 z-1 w-full pointer-events-none">
+    <div className="justify-center flex w-full pointer-events-none">
       <MainContentSection>
         <div className="flex flex-col gap-9 w-full">
           <div>

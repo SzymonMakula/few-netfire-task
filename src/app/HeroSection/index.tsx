@@ -1,15 +1,16 @@
-import ProgressBar from "@/app/Hero/VideoPlayer/ProgressBar";
+import ProgressBar from "@/app/HeroSection/ProgressBar";
 import MainContentSection from "@/components/organisms/MainContentSection";
-import { useRef } from "react";
-import PlayButton from "@/app/Hero/VideoPlayer/PlayButton";
-import Timer from "@/app/Hero/VideoPlayer/Timer";
-import { useVideoControls } from "@/app/Hero/VideoPlayer/useVideoControls";
-import Overlay from "@/app/Hero/VideoPlayer/Overlay";
+import { useRef, useState } from "react";
+import PlayButton from "@/app/HeroSection/PlayButton";
+import Timer from "@/app/HeroSection/Timer";
+import { useVideoControls } from "@/app/HeroSection/useVideoControls";
+import Overlay from "@/app/HeroSection/Overlay";
+import Heading from "@/app/HeroSection/Heading";
 
 const VIDEO_SRC =
   "https://videos.pexels.com/video-files/9206132/9206132-uhd_2560_1440_25fps.mp4";
 
-export default function VideoPlayer() {
+export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const {
     onSeekTrack,
@@ -21,14 +22,20 @@ export default function VideoPlayer() {
     setEndState,
   } = useVideoControls(videoRef);
 
+  const [showControls, setShowControls] = useState(false);
+
   return (
-    <figure className="relative">
+    <figure
+      className="relative"
+      onPointerEnter={() => setShowControls(true)}
+      onPointerLeave={() => setShowControls(false)}
+    >
       <Overlay playbackState={playbackState} />
       <video
+        onClick={togglePlayback}
         onPlay={setPlayState}
         onPause={setPauseState}
         onEnded={setEndState}
-        onClick={togglePlayback}
         ref={videoRef}
         onTimeUpdate={onTrackTimeUpdate}
         controls={false}
@@ -38,9 +45,12 @@ export default function VideoPlayer() {
       >
         <source src={VIDEO_SRC} type="video/mp4" />
       </video>
-      <div className="w-full absolute bottom-0 pb-20 flex justify-center">
+      <div className="w-full flex-col items-center absolute bottom-0 pb-44 flex gap-16 pointer-events-none">
+        <Heading />
         <MainContentSection>
-          <div className="bg-black/30 flex pt-5 pb-6 px-8 gap-4 items-center rounded-[10px] w-full">
+          <div
+            className={`bg-black/30 flex pt-5 pb-6 px-8 gap-4 items-center rounded-[10px] transition-opacity duration-150 w-full pointer-events-auto ${showControls ? "opacity-100" : "opacity-0"}`}
+          >
             <PlayButton
               playbackState={playbackState}
               togglePlayback={togglePlayback}

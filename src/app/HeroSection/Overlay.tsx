@@ -1,4 +1,4 @@
-import { PlaybackState } from "@/app/Hero/VideoPlayer/useVideoControls";
+import { PlaybackState } from "@/app/HeroSection/useVideoControls";
 
 type Props = {
   playbackState: PlaybackState;

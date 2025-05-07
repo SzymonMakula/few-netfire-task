@@ -1,6 +1,6 @@
-import PlayIcon from "@/app/Hero/VideoPlayer/PlayButton/play.svg";
+import PlayIcon from "@/app/HeroSection/PlayButton/play.svg";
 import PauseIcon from "./pause.svg";
-import { PlaybackState } from "@/app/Hero/VideoPlayer/useVideoControls";
+import { PlaybackState } from "@/app/HeroSection/useVideoControls";
 
 type Props = {
   togglePlayback: VoidFunction;

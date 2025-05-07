@@ -6,7 +6,7 @@ import DiscountBanner, {
 import Navbar from "@/app/Navbar";
 import ExampleSection from "@/app/ExampleSection";
 import Footer from "@/components/organisms/Footer";
-import Hero from "@/app/Hero";
+import HeroSection from "@/app/HeroSection";
 
 const MAIN_DISCOUNT: Discount = {
   value: 15,
@@ -19,7 +19,7 @@ export default function Home() {
     <main className="flex items-center flex-col">
       <DiscountBanner discount={MAIN_DISCOUNT} />
       <Navbar />
-      <Hero />
+      <HeroSection />
       <ExampleSection />
       <Footer />
     </main>
