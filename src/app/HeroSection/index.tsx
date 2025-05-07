@@ -45,14 +45,12 @@ export default function HeroSection() {
       </video>
       <div className="w-full flex-col items-center absolute bottom-0 pb-44 flex gap-16 pointer-events-none">
         <Heading />
-        <MaxPageSizeWrapper>
-          <VideoControls
-            areControlsVisible={showControls}
-            togglePlayback={togglePlayback}
-            playbackState={playbackState}
-            onSeekTrack={onSeekTrack}
-          />
-        </MaxPageSizeWrapper>
+        <VideoControls
+          areControlsVisible={showControls}
+          togglePlayback={togglePlayback}
+          playbackState={playbackState}
+          onSeekTrack={onSeekTrack}
+        />
       </div>
     </figure>
   );

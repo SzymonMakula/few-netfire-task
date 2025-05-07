@@ -3,7 +3,7 @@ import Button from "@/components/atoms/Button";
 
 export default function Heading() {
   return (
-    <div className="justify-center flex w-full pointer-events-none">
+    <div className="justify-center flex w-full">
       <MaxPageSizeWrapper>
         <div className="flex flex-col gap-9 w-full">
           <div>
