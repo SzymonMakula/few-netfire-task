@@ -1,10 +1,10 @@
-import MainContentSection from "@/components/organisms/MainContentSection";
+import MaxPageSizeWrapper from "@/components/organisms/MainContentSection";
 import Button from "@/components/atoms/Button";
 
 export default function Heading() {
   return (
     <div className="justify-center flex w-full pointer-events-none">
-      <MainContentSection>
+      <MaxPageSizeWrapper>
         <div className="flex flex-col gap-9 w-full">
           <div>
             <Button variant={"transparent"} sizing={"md"}>
@@ -20,7 +20,7 @@ export default function Heading() {
             </h1>
           </header>
         </div>
-      </MainContentSection>
+      </MaxPageSizeWrapper>
     </div>
   );
 }

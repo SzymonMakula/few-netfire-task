@@ -1,4 +1,4 @@
-import MainContentSection from "@/components/organisms/MainContentSection";
+import MaxPageSizeWrapper from "@/components/organisms/MainContentSection";
 import { useRef, useState } from "react";
 import { useVideoControls } from "@/app/HeroSection/VideoControls/useVideoControls";
 import Overlay from "@/app/HeroSection/Overlay";
@@ -45,14 +45,14 @@ export default function HeroSection() {
       </video>
       <div className="w-full flex-col items-center absolute bottom-0 pb-44 flex gap-16 pointer-events-none">
         <Heading />
-        <MainContentSection>
+        <MaxPageSizeWrapper>
           <VideoControls
             areControlsVisible={showControls}
             togglePlayback={togglePlayback}
             playbackState={playbackState}
             onSeekTrack={onSeekTrack}
           />
-        </MainContentSection>
+        </MaxPageSizeWrapper>
       </div>
     </figure>
   );
