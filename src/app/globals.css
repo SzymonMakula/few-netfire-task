@@ -25,7 +25,7 @@
     @apply bg-primary-300 border-primary-400 text-secondary-400;
   }
   .nf-button-variant-transparent{
-    @apply bg-primary-300 border-secondary-200 text-white;
+    @apply bg-transparent border-secondary-200 text-white;
   }
 }
 
@@ -35,11 +35,13 @@
   --color-primary-200: #E5E5DF;
   --color-primary-300: #D9D9D9;
   --color-primary-400: #827D7D;
+  --color-primary-500: #C9C4C1;
   --color-secondary-100: #5F5959;
   --color-secondary-200: #443B3B;
   --color-secondary-300: #41423E;
   --color-secondary-400: #1C1B1B;
   --color-secondary-500: #111010;
+  --color-secondary-600: #252525;
   --color-accent-100: #404F84;
   --color-tertiary-100: #CAE871;
   --text-primary-sm: 11px;
@@ -51,12 +53,10 @@
   --font-exo: var(--font-exo);
   --font-inter: var(--font-inter);
   --spacing-5\.5: calc(var(--spacing) * 5.5);
-  --spacing-max-content-width: 1337px;
+  --spacing-max-content-width: 1470px;
   --spacing-15: calc(var(--spacing) * 15);
   --spacing-17: calc(var(--spacing) * 17)
 }
-
-
 
 .gradient-bg{
   background-image: var(--main-gradient);
@@ -71,3 +71,4 @@ body {
   background: var(--background);
   font-family: var(--font-exo), serif;
 }
+
