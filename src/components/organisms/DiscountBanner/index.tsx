@@ -1,0 +1,26 @@
+import Anchor from "@/components/atoms/Anchor";
+
+export type Discount = {
+  url: URL;
+  code: string;
+  value: number;
+};
+
+type Props = {
+  discount: Discount;
+};
+export default function DiscountBanner({
+  discount: { url, value, code },
+}: Props) {
+  return (
+    <aside className="flex flex-col w-full">
+      <div className="flex justify-center p-5.5 items-center w-full bg-primary-300">
+        <h2 className="uppercase font-medium text-black font-inter text-primary-md">
+          New customers get {value}% off! Use code{" "}
+          <Anchor href={url.href}>{code}</Anchor>
+        </h2>
+      </div>
+      <div className="main-gradient w-full h-2" />
+    </aside>
+  );
+}
