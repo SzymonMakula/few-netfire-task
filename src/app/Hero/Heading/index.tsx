@@ -1,0 +1,26 @@
+import MainContentSection from "@/components/organisms/MainContentSection";
+import Button from "@/components/atoms/Button";
+
+export default function Heading() {
+  return (
+    <div className="absolute justify-center flex top-50 z-1 w-full pointer-events-none">
+      <MainContentSection>
+        <div className="flex flex-col gap-9 w-full">
+          <div>
+            <Button variant={"transparent"} sizing={"md"}>
+              LOREM IPSUM
+            </Button>
+          </div>
+          <header className="w-full max-w-[720px]">
+            <h1 className="text-primary-300 text-primary-xlg text-start">
+              <span className="gradient-text">
+                {`Lorem Ipsum Dolor Sit amet `}
+              </span>
+              Donec cursus ligula diam, nec congue augue ultrices nec.
+            </h1>
+          </header>
+        </div>
+      </MainContentSection>
+    </div>
+  );
+}
