@@ -10,7 +10,7 @@ export type PlaybackState = {
   currentTime: number;
   duration: number;
 };
-interface VideoControls {
+export interface UseVideoControls {
   playbackState: PlaybackState;
   onSeekTrack: MouseEventHandler<HTMLProgressElement>;
   togglePlayback: VoidFunction;
@@ -21,7 +21,7 @@ interface VideoControls {
 }
 export function useVideoControls(
   videoRef: RefObject<HTMLVideoElement | null>,
-): VideoControls {
+): UseVideoControls {
   const [playbackState, setPlaybackState] = useState<PlaybackState>({
     currentTime: 0,
     duration: 1,

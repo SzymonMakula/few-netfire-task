@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import { PlaybackState } from "@/app/HeroSection/useVideoControls";
+import { PlaybackState } from "@/app/HeroSection/VideoControls/useVideoControls";
 import styles from "./styles.module.css";
 function calculateProgress(state: PlaybackState): number {
   return state.currentTime / state.duration;

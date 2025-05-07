@@ -1,4 +1,4 @@
-import { PlaybackState } from "@/app/HeroSection/useVideoControls";
+import { PlaybackState } from "@/app/HeroSection/VideoControls/useVideoControls";
 
 function formatTime(state: PlaybackState): string {
   const minutes = Math.floor(state.currentTime / 60);
