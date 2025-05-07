@@ -1,30 +1,32 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
 type Variant = "primary" | "secondary" | "transparent";
+type Sizing = "md" | "lg";
 
 type Props = {
   variant: Variant;
+  sizing: Sizing;
 } & Pick<
   DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
   "children" | "onClick" | "title" | "type"
 >;
 
-function mapVariantToClassname(variant: Variant): string {
-  switch (variant) {
-    case "primary":
-      return "bg-primary-200 border-primary-400 text-secondary-500";
-    case "secondary":
-      return "bg-primary-300 border-primary-400 text-secondary-400 ";
-    case "transparent":
-      return "bg-primary-300 border-secondary-200 text-white";
-  }
-}
+const VARIANT_MAP: Record<Variant, string> = {
+  primary: "nf-button-variant-primary",
+  secondary: "nf-button-variant-secondary",
+  transparent: "nf-button-variant-transparent",
+};
 
-export default function Button({ variant, ...rest }: Props) {
-  const variantStyles = mapVariantToClassname(variant);
+const SIZE_MAP: Record<Sizing, string> = {
+  md: "nf-button-size-md",
+  lg: "nf-button-size-lg",
+};
+export default function Button({ variant, sizing, ...rest }: Props) {
+  const variantStyles = VARIANT_MAP[variant];
+  const sizeStyles = SIZE_MAP[sizing];
   return (
     <button
-      className={`flex px-8 py-2 border rounded-md text-primary-md justify-center items-center ${variantStyles}`}
+      className={`nf-button nf-button-size-md ${sizeStyles} ${variantStyles}`}
       {...rest}
     ></button>
   );
