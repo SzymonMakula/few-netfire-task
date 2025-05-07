@@ -1,4 +1,5 @@
 import Anchor from "@/components/atoms/Anchor";
+import GradientSeparator from "@/components/organisms/GradientSeparator";
 
 export type Discount = {
   url: URL;
@@ -20,7 +21,7 @@ export default function DiscountBanner({
           <Anchor href={url.href}>{code}</Anchor>
         </h2>
       </div>
-      <div className="main-gradient w-full h-2" />
+      <GradientSeparator />
     </aside>
   );
 }
