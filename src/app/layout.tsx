@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Exo } from "next/font/google";
+import { Exo, Inter } from "next/font/google";
 import "./globals.css";
 
 const exo = Exo({
   variable: "--font-exo",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -19,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${exo.variable} antialiased`}>{children}</body>
+      <body className={`${exo.variable} ${inter.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
