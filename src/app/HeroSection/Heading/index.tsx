@@ -7,7 +7,7 @@ export default function Heading() {
       <MaxPageSizeWrapper>
         <div className="flex flex-col gap-9 w-full">
           <div>
-            <Button variant={"transparent"} sizing={"md"}>
+            <Button variant={"transparent"} sizing={"xmd"}>
               LOREM IPSUM
             </Button>
           </div>

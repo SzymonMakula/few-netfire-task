@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
 type Variant = "primary" | "secondary" | "transparent";
-type Sizing = "md" | "lg";
+type Sizing = "md" | "xmd" | "lg";
 
 type Props = {
   variant: Variant;
@@ -19,6 +19,7 @@ const VARIANT_MAP: Record<Variant, string> = {
 
 const SIZE_MAP: Record<Sizing, string> = {
   md: "nf-button-size-md",
+  xmd: "nf-button-size-xmd",
   lg: "nf-button-size-lg",
 };
 export default function Button({ variant, sizing, ...rest }: Props) {
