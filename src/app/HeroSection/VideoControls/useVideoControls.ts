@@ -1,9 +1,4 @@
-import {
-  MouseEventHandler,
-  ReactEventHandler,
-  RefObject,
-  useState,
-} from "react";
+import { ReactEventHandler, RefObject, useState } from "react";
 
 export type PlaybackState = {
   state: "playing" | "paused" | "ended";
@@ -12,9 +7,9 @@ export type PlaybackState = {
 };
 export interface UseVideoControls {
   playbackState: PlaybackState;
-  onSeekTrack: MouseEventHandler<HTMLProgressElement>;
+  seekVideo: (time: number) => void;
   togglePlayback: VoidFunction;
-  onTrackTimeUpdate: ReactEventHandler<HTMLVideoElement>;
+  updateTrackTime: (time: number, duration: number) => void;
   setPlayState: VoidFunction;
   setPauseState: VoidFunction;
   setEndState: VoidFunction;
@@ -27,19 +22,13 @@ export function useVideoControls(
     duration: 1,
     state: "playing",
   });
-  const onSeekTrack: MouseEventHandler<HTMLProgressElement> = (event) => {
+  const seekVideo = (time: number) => {
     if (videoRef.current === null)
       throw new Error(
         "Illegal seek call before HTMLVideoElement initialization",
       );
 
-    const progressBar = event.currentTarget as HTMLProgressElement;
-
-    const parentOffset = progressBar.offsetParent as HTMLElement;
-    const pos =
-      (event.pageX - progressBar.offsetLeft - parentOffset.offsetLeft) /
-      progressBar.offsetWidth;
-    videoRef.current.currentTime = pos * playbackState.duration;
+    videoRef.current.currentTime = time;
   };
 
   const togglePlayback = () => {
@@ -56,11 +45,10 @@ export function useVideoControls(
     }
   };
 
-  const onTrackTimeUpdate: ReactEventHandler<HTMLVideoElement> = (event) => {
-    const { currentTime, duration } = event.currentTarget;
+  const updateTrackTime = (time: number, duration: number) => {
     setPlaybackState((prevState) => ({
       duration,
-      currentTime,
+      currentTime: time,
       state: prevState.state,
     }));
   };
@@ -76,8 +64,8 @@ export function useVideoControls(
   };
 
   return {
-    onSeekTrack,
-    onTrackTimeUpdate,
+    seekVideo,
+    updateTrackTime,
     playbackState,
     setPauseState,
     setPlayState,

@@ -1,5 +1,4 @@
-import MaxPageSizeWrapper from "@/components/organisms/MainContentSection";
-import { useRef, useState } from "react";
+import { ReactEventHandler, useRef, useState } from "react";
 import { useVideoControls } from "@/app/HeroSection/VideoControls/useVideoControls";
 import Overlay from "@/app/HeroSection/Overlay";
 import Heading from "@/app/HeroSection/Heading";
@@ -11,16 +10,20 @@ const VIDEO_SRC =
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const {
-    onSeekTrack,
-    onTrackTimeUpdate,
+    seekVideo,
+    updateTrackTime,
     playbackState,
     togglePlayback,
     setPauseState,
     setPlayState,
     setEndState,
   } = useVideoControls(videoRef);
-
   const [showControls, setShowControls] = useState(false);
+
+  const onTrackTimeUpdate: ReactEventHandler<HTMLVideoElement> = (event) => {
+    const { currentTime, duration } = event.currentTarget;
+    updateTrackTime(currentTime, duration);
+  };
 
   return (
     <figure
@@ -49,7 +52,7 @@ export default function HeroSection() {
           areControlsVisible={showControls}
           togglePlayback={togglePlayback}
           playbackState={playbackState}
-          onSeekTrack={onSeekTrack}
+          seekVideo={seekVideo}
         />
       </div>
     </figure>

@@ -6,10 +6,10 @@ import ProgressBar from "@/app/HeroSection/VideoControls/ProgressBar";
 
 type Props = {
   areControlsVisible: boolean;
-} & Pick<UseVideoControls, "playbackState" | "togglePlayback" | "onSeekTrack">;
+} & Pick<UseVideoControls, "playbackState" | "togglePlayback" | "seekVideo">;
 export default function VideoControls({
   areControlsVisible,
-  onSeekTrack,
+  seekVideo,
   togglePlayback,
   playbackState,
 }: Props) {
@@ -22,7 +22,7 @@ export default function VideoControls({
           playbackState={playbackState}
           togglePlayback={togglePlayback}
         />
-        <ProgressBar onVideoSeek={onSeekTrack} playbackState={playbackState} />
+        <ProgressBar seekVideo={seekVideo} playbackState={playbackState} />
         <Timer playbackState={playbackState} />
       </div>
     </MaxPageSizeWrapper>

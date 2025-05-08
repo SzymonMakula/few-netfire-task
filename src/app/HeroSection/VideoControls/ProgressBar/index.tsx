@@ -7,12 +7,21 @@ function calculateProgress(state: PlaybackState): number {
 
 type Props = {
   playbackState: PlaybackState;
-  onVideoSeek: MouseEventHandler<HTMLProgressElement>;
+  seekVideo: (time: number) => void;
 };
-export default function ProgressBar({ playbackState, onVideoSeek }: Props) {
+export default function ProgressBar({ playbackState, seekVideo }: Props) {
+  const onProgressClick: MouseEventHandler<HTMLProgressElement> = (event) => {
+    const progressBar = event.currentTarget as HTMLProgressElement;
+    const parentOffset = progressBar.offsetParent as HTMLElement;
+    const pos =
+      (event.pageX - progressBar.offsetLeft - parentOffset.offsetLeft) /
+      progressBar.offsetWidth;
+    seekVideo(pos * playbackState.duration);
+  };
+
   return (
     <progress
-      onClick={onVideoSeek}
+      onClick={onProgressClick}
       value={calculateProgress(playbackState)}
       className={styles.progress}
     ></progress>
