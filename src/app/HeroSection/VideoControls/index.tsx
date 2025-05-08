@@ -1,8 +1,8 @@
-import PlayButton from "@/app/HeroSection/PlayButton";
-import ProgressBar from "@/app/HeroSection/ProgressBar";
-import Timer from "@/app/HeroSection/Timer";
+import Timer from "@/app/HeroSection/VideoControls/Timer";
 import { UseVideoControls } from "@/app/HeroSection/VideoControls/useVideoControls";
 import MaxPageSizeWrapper from "@/components/organisms/MainContentSection";
+import PlayButton from "@/app/HeroSection/VideoControls/PlayButton";
+import ProgressBar from "@/app/HeroSection/VideoControls/ProgressBar";
 
 type Props = {
   areControlsVisible: boolean;

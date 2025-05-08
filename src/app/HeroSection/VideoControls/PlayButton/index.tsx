@@ -1,4 +1,4 @@
-import PlayIcon from "@/app/HeroSection/PlayButton/play.svg";
+import PlayIcon from "@/app/HeroSection/VideoControls/PlayButton/play.svg";
 import PauseIcon from "./pause.svg";
 import { PlaybackState } from "@/app/HeroSection/VideoControls/useVideoControls";
 
