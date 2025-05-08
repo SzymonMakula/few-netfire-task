@@ -3,6 +3,7 @@ import Button from "@/components/atoms/Button";
 import Heading from "@/app/ExampleSection/Heading";
 import UnderlineAnchor from "@/components/atoms/UnderlineAnchor";
 
+// I'd use context-related name for the Section component
 export default function ExampleSection() {
   return (
     <MaxPageSizeWrapper>

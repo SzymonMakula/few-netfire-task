@@ -1,3 +1,7 @@
+/**
+ * The "gradient-text" behaves like a different DOM node. This would not work well for a break-word text.
+ * I'd at least warn the UX team about this.
+ */
 export default function Heading() {
   return (
     <h2 className="text-secondary-400 text-primary-lg text-center leading-10">

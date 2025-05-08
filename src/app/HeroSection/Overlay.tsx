@@ -1,5 +1,10 @@
 import { PlaybackState } from "@/app/HeroSection/VideoControls/useVideoControls";
 
+/**
+ * Overlay displayed over video/hero section. Can be customized based on PlaybackState, i.e.
+ * different opacity/effects for paused/stopped video. Dependency on PlaybackState gives a window for expansion.
+ */
+
 type Props = {
   playbackState: PlaybackState;
 };

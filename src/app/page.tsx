@@ -3,7 +3,7 @@
 import DiscountBanner, {
   Discount,
 } from "@/components/organisms/DiscountBanner";
-import Navbar from "@/app/Navbar";
+import Navbar from "../components/organisms/Navbar";
 import ExampleSection from "@/app/ExampleSection";
 import Footer from "@/components/organisms/Footer";
 import HeroSection from "@/app/HeroSection";

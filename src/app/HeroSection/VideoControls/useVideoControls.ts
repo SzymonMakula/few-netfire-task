@@ -1,10 +1,20 @@
-import { ReactEventHandler, RefObject, useState } from "react";
+import { RefObject, useState } from "react";
+
+/**
+ * Common State interface used by VideoControls components.
+ */
 
 export type PlaybackState = {
   state: "playing" | "paused" | "ended";
   currentTime: number;
   duration: number;
 };
+
+/**
+ * Interface for controlling PlaybackState. Should not be tied to any React synthetic events - the callbacks
+ * are just for interacting with the state machine.
+ */
+
 export interface UseVideoControls {
   playbackState: PlaybackState;
   seekVideo: (time: number) => void;
@@ -22,6 +32,11 @@ export function useVideoControls(
     duration: 1,
     state: "playing",
   });
+  /**
+   * I throw errors for unreachable scenarios. These methods should never be called
+   * before the React assigns the ref value. In normal conditions, user should not be able to interact with the un-rendered UI &
+   * the UseVideControls clients shouldn't call methods prior to page rendering.
+   */
   const seekVideo = (time: number) => {
     if (videoRef.current === null)
       throw new Error(

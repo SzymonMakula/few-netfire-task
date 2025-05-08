@@ -22,6 +22,15 @@ const SIZE_MAP: Record<Sizing, string> = {
   xmd: "nf-button-size-xmd",
   lg: "nf-button-size-lg",
 };
+
+/**
+ * Similar to Anchor.tsx - one could very well use CSS class-names to construct buttons.
+ * This however makes it possible to construct arbitrary buttons - extra margins, unsupported colors etc. Component
+ * has control over the className API. Regardless, similar to anchors, buttons usually have some extra domain-specific UX attached to them.
+ * Having one atomic Button helps keep all button variants in one place, reducing a chance for "rogue" components.
+ * Due to project scope, I've decided to implement that myself. In real world-scenario, I'd use a component library instead. Here, I saw it as too much overhead.
+ * A more complex Figma designs would include various button states & other widgets - yet another reason for a component library.
+ */
 export default function Button({ variant, sizing, ...rest }: Props) {
   const variantStyles = VARIANT_MAP[variant];
   const sizeStyles = SIZE_MAP[sizing];

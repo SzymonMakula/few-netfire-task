@@ -1,5 +1,5 @@
 import Anchor from "@/components/atoms/Anchor";
-import LogoIcon from "../../../assets/logo.svg";
+import LogoIcon from "../../../../assets/logo.svg";
 
 export default function PageLogo() {
   return (

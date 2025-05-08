@@ -7,9 +7,15 @@ export type Discount = {
   value: number;
 };
 
+/**
+ * The Discount API feels ify, but that component definitely feels reusable. I'd probably ask what kind of discounts
+ * are we to support and model the API based on that.
+ */
+
 type Props = {
   discount: Discount;
 };
+
 export default function DiscountBanner({
   discount: { url, value, code },
 }: Props) {
